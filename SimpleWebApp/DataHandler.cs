@@ -12,19 +12,16 @@ namespace SimpleWebApp
 {
     public class DataHandler
     {
-        public static string ConnectionString;
-
         private const string DataNameQueryKey = "dataName";
         private const string ProcedureName = "MyAppDatabase.GetOrCreateDataId";
         private readonly ConcurrentDictionary<string, int> _cache;
-        private readonly SemaphoreSlim _lock = new SemaphoreSlim(1, 1);
 
         public DataHandler(RequestDelegate next)
         {
             _cache = new ConcurrentDictionary<string, int>();
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, MySqlConnection connection)
         {
             // Check for valid request
             var dataName = context.Request.Query[DataNameQueryKey].ToString();
@@ -44,17 +41,17 @@ namespace SimpleWebApp
             }
 
             // If not found in cache, do DB lookup
-            dataId = await GetDataId(dataName);
+            dataId = await GetDataId(connection, dataName);
 
             // Update cache and write response
             _cache[dataName] = dataId;
             await WriteResponse(context, dataName, dataId);
         }
 
-        private static async Task<int> GetDataId(string dataName)
+        private static async Task<int> GetDataId(MySqlConnection connection, string dataName)
         {
             int dataId;
-            await using (var connection = new MySqlConnection(ConnectionString))
+            using (connection)
             {
                 await connection.OpenAsync();
                 await using (var cmd = new MySqlCommand(ProcedureName, connection))
