@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebApp", "SimpleWebApp\SimpleWebApp.csproj", "{37D3B275-4D45-4DC8-A0AC-560FC9A7C33E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebAppThrasher", "SimpleWebAppThrasher\SimpleWebAppThrasher.csproj", "{31F7E921-22B7-41F3-80BC-6D9E16076F56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1F792716-C3B9-4782-9DA2-79561D010129}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37D3B275-4D45-4DC8-A0AC-560FC9A7C33E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D3B275-4D45-4DC8-A0AC-560FC9A7C33E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D3B275-4D45-4DC8-A0AC-560FC9A7C33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D3B275-4D45-4DC8-A0AC-560FC9A7C33E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F7E921-22B7-41F3-80BC-6D9E16076F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F7E921-22B7-41F3-80BC-6D9E16076F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F7E921-22B7-41F3-80BC-6D9E16076F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F7E921-22B7-41F3-80BC-6D9E16076F56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
